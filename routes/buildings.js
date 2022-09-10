@@ -46,7 +46,7 @@ router.delete("/:id", async (req, res) => {
    }
 });
 
-router.patch("/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
    try {
       const updateBuilding = await Building.updateOne(
          { _id: req.params.id },
