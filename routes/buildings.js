@@ -28,4 +28,42 @@ router.post("/", async (req, res) => {
    }
 });
 
+router.get("/:id", async (req, res) => {
+   try {
+      const singleBuilding = await Building.findById(req.params.id);
+      res.json(singleBuilding);
+   } catch (error) {
+      console.log({ message: error });
+   }
+});
+
+router.delete("/:id", async (req, res) => {
+   try {
+      const removeBuilding = await Building.remove({ _id: req.params.id });
+      res.json(removeBuilding);
+   } catch (error) {
+      console.log({ message: error });
+   }
+});
+
+router.patch("/:id", async (req, res) => {
+   try {
+      const updateBuilding = await Building.updateOne(
+         { _id: req.params.id },
+         {
+            $set: {
+               name: req.body.name,
+               place: req.body.place,
+               building: req.body.building,
+               kvartir: req.body.kvartir,
+               info: req.body.info,
+            },
+         }
+      );
+      res.json(updateBuilding);
+   } catch (error) {
+      console.log({ message: error });
+   }
+});
+
 module.exports = router;
