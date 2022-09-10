@@ -60,7 +60,7 @@ router.put("/:id", async (req, res) => {
             },
          }
       );
-      res.json(updateBuilding);
+      res.json({ ...req.body, _id: req.params.id });
    } catch (error) {
       console.log({ message: error });
    }
