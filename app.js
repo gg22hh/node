@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 const buildingsRoute = require("./routes/buildings");
 
 app.use(cors());
-app.use("/", buildingsRoute);
+app.use("/buildings", buildingsRoute);
 
 // Routes
 app.get("/", (req, res) => {
