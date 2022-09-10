@@ -31,4 +31,4 @@ mongoose
    .then((res) => console.log("connected to DB"))
    .catch((err) => console.log(err));
 
-app.listen(3000);
+app.listen(process.end.PORT || 3000);
